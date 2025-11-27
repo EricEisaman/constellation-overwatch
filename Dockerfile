@@ -18,8 +18,8 @@ RUN go mod download
 COPY . .
 
 # Generate templates in the correct directory
-RUN mkdir -p pkg/services/web/templates
-cd pkg/services/web/templates && templ generate
+RUN mkdir -p pkg/services/web/templates && \
+    templ generate -d pkg/services/web/templates
 
 # Build the application
 RUN CGO_ENABLED=1 GOOS=linux go build -o /app/bin/overwatch ./cmd/microlith
