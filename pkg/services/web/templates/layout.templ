@@ -14,13 +14,15 @@ templ Layout(title string) {
 		<body>
 			<div class="container">
 				<header class="header">
-					<img href="/static/images/favicon.svg" alt="Constellation Overwatch"/>
-					<div class="subtitle">Edge Awareness Kit</div>
-					<div class="status-bar">
-						<span class="status-item">🦅🐉</span>
-						<span class="status-item">SYSTEM: ONLINE</span>
-						<span class="status-item">TIME: <span id="time">--:--:--</span></span>
-					</div>
+    				<div class="header-top">
+        				<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zm0 30c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z' fill='%23666'%3E%3C/svg%3E" alt="Constellation Overwatch" class="favicon"/>
+        				<div class="subtitle">Edge Awareness Kit</div>
+    				</div>
+    				<div class="status-bar">
+        				<span class="status-item">🦅🐉</span>
+        				<span class="status-item">SYSTEM: ONLINE</span>
+        				<span class="status-item">TIME: <span id="time">--:--:--</span></span>
+    				</div>
 				</header>
 				<div class="main-layout">
 					{ children... }
