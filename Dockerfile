@@ -22,6 +22,7 @@ WORKDIR /pkg/services/web/templates
 RUN templ generate
 
 # Build the application
+WORKDIR /app
 RUN CGO_ENABLED=1 GOOS=linux go build -o /app/bin/overwatch ./cmd/microlith
 
 # Run Stage
