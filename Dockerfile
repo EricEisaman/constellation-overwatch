@@ -18,7 +18,7 @@ RUN go mod download
 COPY . .
 
 # Generate templates
-WORKDIR /app/pkg/services/web/templates
+WORKDIR /pkg/services/web/templates
 RUN templ generate
 
 # Build the application
