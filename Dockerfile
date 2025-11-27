@@ -17,8 +17,9 @@ RUN go mod download
 # Copy source code
 COPY . .
 
-# Generate templates
-RUN templ generate
+# Generate templates in the correct directory
+RUN mkdir -p pkg/services/web/templates
+cd pkg/services/web/templates && templ generate
 
 # Build the application
 RUN CGO_ENABLED=1 GOOS=linux go build -o /app/bin/overwatch ./cmd/microlith
@@ -40,7 +41,7 @@ RUN mkdir -p /data /app && \
 
 # Copy binary and templates from builder
 COPY --from=builder /app/bin/overwatch /app/overwatch
-COPY --from=builder /app/templates /app/templates
+COPY --from=builder /app/pkg/services/web/templates /app/pkg/services/web/templates
 
 # Copy configuration files
 COPY nats.conf /app/nats.conf
